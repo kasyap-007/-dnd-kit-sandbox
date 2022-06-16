@@ -17,8 +17,22 @@ import {
 import StackItem from './StackItem';
 
 const Stack = () => {
-  const [items, setItems] = useState([1, 2, 3, 4, 5, 6, 7]);
-  const sensors = useSensors(useSensor(PointerSensor));
+  const [items, setItems] = useState([
+    { id: 1, name: 'rishi' },
+    { id: 2, name: 'Kasyap' },
+    { id: 3, name: 'harry' },
+    { id: 4, name: 'Potter' },
+    { id: 5, name: 'john wick' },
+  ]);
+
+  // If the draggable item needs to fire a click event adding activationConstraints can be used - delay/distance
+  const sensors = [
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 5,
+      },
+    }),
+  ];
 
   return (
     <DndContext
@@ -28,8 +42,8 @@ const Stack = () => {
     >
       <ul className="stack-group">
         <SortableContext items={items} strategy={verticalListSortingStrategy}>
-          {items.map((id) => (
-            <StackItem key={id} id={id} />
+          {items.map((item) => (
+            <StackItem key={item.id} item={item} />
           ))}
         </SortableContext>
       </ul>
@@ -41,8 +55,8 @@ const Stack = () => {
 
     if (active.id !== over.id) {
       setItems((items) => {
-        const oldIndex = items.indexOf(active.id);
-        const newIndex = items.indexOf(over.id);
+        const oldIndex = items.findIndex((item) => item.id === active.id);
+        const newIndex = items.findIndex((item) => item.id === over.id);
 
         return arrayMove(items, oldIndex, newIndex);
       });

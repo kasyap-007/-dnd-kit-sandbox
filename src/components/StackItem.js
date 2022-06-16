@@ -2,9 +2,9 @@ import React from 'react';
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
-const StackItem = ({ id }) => {
+const StackItem = ({ item }) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: id });
+    useSortable({ id: item.id });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -18,7 +18,7 @@ const StackItem = ({ id }) => {
       {...attributes}
       {...listeners}
     >
-      {id}
+      {item.name}
     </li>
   );
 };
