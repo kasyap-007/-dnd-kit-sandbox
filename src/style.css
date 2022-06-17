@@ -1,10 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+
 h1,
 p {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+body {
+  min-height: 100vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-image: linear-gradient(160deg, #0093e9 0%, #80d0c7 100%);
+}
 
 .stack-group {
+  color: black;
+  width: 400px;
   background-color: aqua;
   border-radius: 20px;
   padding: 30px;
@@ -12,17 +27,38 @@ p {
   flex-direction: column;
   row-gap: 20px;
   max-height: 300px;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 .stack-item {
   padding: 20px;
-  box-shadow: inset;
   background-color: white;
   cursor: grab;
   border-radius: 10px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }
 
 li {
   list-style: none;
+}
+
+.grid-group {
+  color: black;
+  width: 400px;
+  background-color: aqua;
+  border-radius: 20px;
+  padding: 30px;
+  grid-template-columns: repeat(3, 80px);
+  display: grid;
+  gap: 50px;
+}
+
+.grid-item {
+  padding: 20px;
+  background-color: white;
+  cursor: grab;
+  border-radius: 10px;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
 }

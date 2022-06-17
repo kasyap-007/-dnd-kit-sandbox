@@ -13,16 +13,21 @@ import {
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
+import {
+  restrictToFirstScrollableAncestor,
+  restrictToVerticalAxis,
+} from '@dnd-kit/modifiers';
 
 import StackItem from './StackItem';
 
 const Stack = () => {
   const [items, setItems] = useState([
-    { id: 1, name: 'rishi' },
-    { id: 2, name: 'Kasyap' },
-    { id: 3, name: 'harry' },
-    { id: 4, name: 'Potter' },
-    { id: 5, name: 'john wick' },
+    { id: 1, name: 'Chrome' },
+    { id: 2, name: 'Edge' },
+    { id: 3, name: 'Brave' },
+    { id: 4, name: 'Firefox' },
+    { id: 5, name: 'Opera' },
+    { id: 6, name: 'Sigma OS' },
   ]);
 
   // If the draggable item needs to fire a click event adding activationConstraints can be used - delay/distance
@@ -35,19 +40,23 @@ const Stack = () => {
   ];
 
   return (
-    <DndContext
-      sensors={sensors}
-      collisionDetection={closestCenter}
-      onDragEnd={handleDragEnd}
-    >
-      <ul className="stack-group">
-        <SortableContext items={items} strategy={verticalListSortingStrategy}>
-          {items.map((item) => (
-            <StackItem key={item.id} item={item} />
-          ))}
-        </SortableContext>
-      </ul>
-    </DndContext>
+    <>
+      <h2>List (Vertical - Scrollable)</h2>
+      <DndContext
+        modifiers={[restrictToFirstScrollableAncestor, restrictToVerticalAxis]}
+        sensors={sensors}
+        collisionDetection={closestCenter}
+        onDragEnd={handleDragEnd}
+      >
+        <ul className="stack-group">
+          <SortableContext items={items} strategy={verticalListSortingStrategy}>
+            {items.map((item) => (
+              <StackItem key={item.id} item={item} />
+            ))}
+          </SortableContext>
+        </ul>
+      </DndContext>
+    </>
   );
 
   function handleDragEnd(event) {
