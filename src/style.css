@@ -8,6 +8,7 @@ p {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 body {
+  user-select: none;
   min-height: 100vh;
   color: white;
   display: flex;
@@ -20,7 +21,7 @@ body {
 .stack-group {
   color: black;
   width: 400px;
-  background-color: aqua;
+  background-color: dodgerblue;
   border-radius: 20px;
   padding: 30px;
   display: flex;
@@ -46,7 +47,7 @@ li {
 .grid-group {
   color: black;
   width: 400px;
-  background-color: aqua;
+  background-color: dodgerblue;
   border-radius: 20px;
   padding: 30px;
   grid-template-columns: repeat(3, 80px);

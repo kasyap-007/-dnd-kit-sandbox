@@ -41,7 +41,7 @@ const Stack = () => {
 
   return (
     <>
-      <h2>List (Vertical - Scrollable)</h2>
+      <h2>List</h2>
       <DndContext
         modifiers={[restrictToFirstScrollableAncestor, restrictToVerticalAxis]}
         sensors={sensors}

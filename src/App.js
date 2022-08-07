@@ -6,8 +6,8 @@ import Grid from './components/Grid';
 export default function App() {
   return (
     <div>
-      <h1>@dnd-kit/sortable</h1>
-      <p>A playground to explore @dnd-kit</p>
+      <h1>@dnd-kit</h1>
+      <p>A playground to explore drag & drop using @dnd-kit</p>
       <Stack />
       <Grid />
     </div>
